@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('zone_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('island_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

@@ -47,12 +47,12 @@ class User extends Authenticatable
         ];
     }
 
-    public function Role()
+    public function role()
     {
         return $this->belongsTo(Role::class);
     }
 
-    public function Meetings()
+    public function meetings1()
     {
         return $this->hasMany(Meeting::class);
     }

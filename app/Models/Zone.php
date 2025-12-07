@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Zone extends Model
 {
-    public function Municipalities()
+    public function municipalities()
     {
         return $this->hasMany(Municipality::class);
     }

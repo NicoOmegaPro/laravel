@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('treks', function (Blueprint $table) {
             $table->id();
+            $table->string('regNumber')->unique();
+            $table->string('name');
+            $table->foreignId('municipality_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->ENUM('status', ['yes', 'no'])->default('no');
+            $table->integer('totalScore')->nullable()->default(0);
+            $table->integer('countScore')->nullable()->default(0);
+            $table->float('avgScore')->default(0);
             $table->timestamps();
         });
     }

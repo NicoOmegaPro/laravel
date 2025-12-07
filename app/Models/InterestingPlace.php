@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Place_type;
+use App\Models\PlaceType;
 use App\Models\Image;
 
-class Interesting_place extends Model
+class InterestingPlace extends Model
 {
     public function place_type()
     {
-        return $this->belongsTo(Place_type::class);
+        return $this->belongsTo(PlaceType::class);
     }
 
     public function images()

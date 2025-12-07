@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('interesting_places', function (Blueprint $table) {
             $table->id();
+            $table->string('gps')->unique();
+            $table->string('name');
+            $table->foreignId('place_type_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }

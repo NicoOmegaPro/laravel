@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trek extends Model
 {
-    public function Meetings()
+    public function meetings()
     {
         return $this->hasMany(Meeting::class);
     }
 
-    public function Municipality()
+    public function municipality()
     {
         return $this->belongsTo(Municipality::class);
     }
 
-    public function Interesting_places()
+    public function interesting_places()
     {
-        return $this->belongsToMany(Interesting_place::class);
+        return $this->belongsToMany(InterestingPlace::class)->withTimestamps()->withPivot('order');
     }
 }

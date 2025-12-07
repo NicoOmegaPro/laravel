@@ -8,18 +8,18 @@ use App\Models\Trek;
 
 class Meeting extends Model
 {
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function Trek()
+    public function trek()
     {
         return $this->belongsTo(Trek::class);
     }
 
-    public function Users()
+    public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 }

@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_meeting', function (Blueprint $table) {
+        Schema::create('meeting_user', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('meeting_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_meeting');
+        Schema::dropIfExists('meeting_user');
     }
 };

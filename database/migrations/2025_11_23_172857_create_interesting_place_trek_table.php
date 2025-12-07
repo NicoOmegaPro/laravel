@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('interesting_place_trek', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('trek_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->foreignId('interesting_place_id')->constrained()->onUpdate('restrict')->onDelete('restrict');
+            $table->integer('order');
             $table->timestamps();
         });
     }
